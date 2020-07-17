@@ -1,6 +1,6 @@
 name: Release Tweet
 on:
-  release
+  release:
     types: [published, released, edited]
 
 jobs:
