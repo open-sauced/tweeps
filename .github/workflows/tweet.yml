@@ -11,4 +11,15 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(context)
+
+            # create a new tweet file from a branch
+
+            await github.pulls.create({
+              owner: context.repo.owner,
+              repo: "tweets",
+              body: context.payload.body
+              title:"New tweet" # release tag
+              head
+              base
+            })
+
