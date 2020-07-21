@@ -1,0 +1,25 @@
+
+name: Resize images
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  resize-images:
+    name: resize image
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: echo $GITHUB_HEAD_REF
+    - name: Image Resizer to 640x320
+      run: convert images/**.png -resize 640x320 images/**.png
+    - name: Add & Commit files
+      run: |
+        git checkout $GITHUB_HEAD_REF
+        git config --local user.email "github-action[bot]@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git add .
+        git commit -m "Add changes" -a
+        
+        git push -u origin $GITHUB_HEAD_REF -f
