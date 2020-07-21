@@ -13,8 +13,8 @@ jobs:
 
     steps:
     - run: echo $GITHUB_HEAD_REF
-    - name: Image Resizer to 680x320
-      run: convert images/**.png -resize 680x320 images/**.png
+    - name: Image Resizer to 640x320
+      run: convert images/**.png -resize 640x320 images/**.png
     - name: Add & Commit files
       run: |
         git checkout $GITHUB_HEAD_REF
