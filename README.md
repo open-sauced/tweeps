@@ -1,4 +1,4 @@
-<img style="width: 90px" src="https://github.com/open-sauced/tweets/blob/master/socialcard.png">
+<img style="width: 90px" src="https://user-images.githubusercontent.com/5713670/88012467-cc6d2480-cace-11ea-95f7-02c814888643.png">
 
 Location for sending tweets to the Open Sauced twitter account. 
 
