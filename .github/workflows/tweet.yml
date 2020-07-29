@@ -2,8 +2,23 @@ name: Release Tweet
 on:
   release:
     types: [released]
+    
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 
 jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Tags: ${{ github.event.inputs.tags }}" 
   one:
     runs-on: ubuntu-latest
     steps:
@@ -17,9 +32,9 @@ jobs:
             await github.pulls.create({
               owner: context.repo.owner,
               repo: "tweets",
-              body: context.payload.body
-              title:"New tweet" # release tag
-              head
-              base
+              body: context.payload.body,
+              title:"New tweet",
+              head: open-sauced/tweets,
+              base: master
             })
 
