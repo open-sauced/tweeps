@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Log level: ${{ github.event }}"
+        echo $github.event
 
   one:
     runs-on: ubuntu-latest
